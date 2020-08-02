@@ -9,6 +9,12 @@ const height = context.canvas.height;
 
 let movingMouse = true;
 
+
+// XposMouse for changing the color
+let XposMouse = [];
+// YposMouse for changing the amplitude
+let YposMouse = [];
+
 drawBackground();
 
 
@@ -20,9 +26,13 @@ function moveMouse(e) {
 }
 
 function drawBackground() {
+    context.fillStyle = 'black';
+    context.fillRect(0, 0, width, height);
 
-    context.fillStyle = "black"
+
+    context.beginPath();
+    context.fillStyle = "white"
     context.font = "bold 60pt Arial";
-    context.fillText("Jari Miers", width / 2 - 200, 250);
+    context.fillText("Jari Miers", width / 2 - 200, height / 2);
 
 }

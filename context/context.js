@@ -8,7 +8,7 @@ function getCanvasContext() {
     //get a reference to the canvas element and configure it to fill the whole window
     let canvas = document.getElementById('canvas');
     canvas.width = window.innerWidth;
-    canvas.height = 500;
+    canvas.height = 600;
     canvas.style.margin = 0;
     canvas.style.padding = 0;
     canvas.style.position = 'absolute';
