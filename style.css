@@ -1,0 +1,11 @@
+img {
+    width: 2%;
+    margin: 2%;
+    position: absolute;
+    z-index: 2;
+}
+
+canvas {
+    position: relative;
+    z-index: 1;
+}
