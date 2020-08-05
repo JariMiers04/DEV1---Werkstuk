@@ -24,7 +24,7 @@ document.onmousemove = moveMouse;
 
 function moveMouse(e) {
     let mouse = {
-        y: e.pageY
+        x: e.pageX
     };
     xPosMouse.push(mouse);
     for (let i = 0; i < xPosMouse.length; i++) {
