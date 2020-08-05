@@ -17,7 +17,6 @@ let counter = 10;
 let xPosMouse = [];
 
 
-
 drawBackgroundAnimation();
 
 document.onmousemove = moveMouse;
@@ -29,7 +28,9 @@ function moveMouse(e) {
     xPosMouse.push(mouse);
     for (let i = 0; i < xPosMouse.length; i++) {
         let mouseInfoArray = xPosMouse[i];
+        console.log(mouseInfoArray);
     }
+    
     if (e.pageY > 600 && e.pageY > height && counter >= 3) {
         counter -= 0.2;
     } else if (e.pageY < 600 && e.pageY > 0 && counter <= 15) {
