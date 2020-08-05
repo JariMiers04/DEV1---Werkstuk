@@ -14,7 +14,7 @@ let space = 200;
 let counter = 10;
 
 // xPosMouse for changing the color
-let xPosMouse = [];
+let xPosMouse = 0;
 
 
 drawBackgroundAnimation();
@@ -22,15 +22,9 @@ drawBackgroundAnimation();
 document.onmousemove = moveMouse;
 
 function moveMouse(e) {
-    let mouse = {
-        x: e.pageX
-    };
-    xPosMouse.push(mouse);
-    for (let i = 0; i < xPosMouse.length; i++) {
-        let mouseInfoArray = xPosMouse[i];
-        console.log(mouseInfoArray);
-    }
-    
+
+    xPosMouse = e.pageX;
+
     if (e.pageY > 600 && e.pageY > height && counter >= 3) {
         counter -= 0.2;
     } else if (e.pageY < 600 && e.pageY > 0 && counter <= 15) {
@@ -44,7 +38,11 @@ function drawBackgroundAnimation() {
     context.fillRect(0, 0, width, height);
     for (let i = 0; i < 8; i++) {
         let Yrandom = Utils.randomNumber(1, counter);
-        context.fillStyle = 'red';
+        if (xPosMouse > 0 && width / 2) {
+            context.fillStyle = Utils.hsl(0 * 360, 100, 50);
+        } else if (xPosMouse > width / 2 && xPosMouse < width) {
+            context.fillStyle = Utils.hsl(100 * 360, 100, 50);
+        }
         for (let j = 0; j < 20; j++) {
             context.fillRect(0 + space + i * space, height - 40 - j * 40, 100, 20);
             if (j === Yrandom) {
