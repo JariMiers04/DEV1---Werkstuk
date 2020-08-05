@@ -9,12 +9,17 @@ const width = context.canvas.width;
 const height = context.canvas.height;
 
 
-let fps = 12;
-let space = 200;
+const fps = 12;
+const space = 200;
 let counter = 10;
+
+let colors = ['black', 'red', 'green', 'blue', 'purple'];
+let frameCounter = 0;
+let backgroundColor = 'black';
 
 // xPosMouse for changing the color
 let xPosMouse = 0;
+let colorMultiplier = width / 360;
 
 
 drawBackgroundAnimation();
@@ -26,7 +31,7 @@ function moveMouse(e) {
     xPosMouse = e.pageX;
 
     if (e.pageY > 600 && e.pageY > height && counter >= 3) {
-        counter -= 0.2;
+        counter -= 0.5;
     } else if (e.pageY < 600 && e.pageY > 0 && counter <= 15) {
         counter += 0.2;
     }
@@ -34,15 +39,16 @@ function moveMouse(e) {
 }
 
 function drawBackgroundAnimation() {
-    context.fillStyle = "black";
+    if (frameCounter === 15) {
+        backgroundColor = colors[Utils.randomNumber(0, colors.length - 1)];
+        frameCounter = 0;
+    }
+    context.fillStyle = backgroundColor;
+    console.log(backgroundColor);
     context.fillRect(0, 0, width, height);
     for (let i = 0; i < 8; i++) {
         let Yrandom = Utils.randomNumber(1, counter);
-        if (xPosMouse > 0 && width / 2) {
-            context.fillStyle = Utils.hsl(0 * 360, 100, 50);
-        } else if (xPosMouse > width / 2 && xPosMouse < width) {
-            context.fillStyle = Utils.hsl(100 * 360, 100, 50);
-        }
+        context.fillStyle = Utils.hsl(xPosMouse / colorMultiplier, 100, 50);
         for (let j = 0; j < 20; j++) {
             context.fillRect(0 + space + i * space, height - 40 - j * 40, 100, 20);
             if (j === Yrandom) {
@@ -54,6 +60,7 @@ function drawBackgroundAnimation() {
     context.fillStyle = "white";
     context.font = "bold 60pt Arial";
     context.fillText("Jari Miers", width / 2 - 200, height / 2);
+    frameCounter++;
     setTimeout(() => {
         requestAnimationFrame(drawBackgroundAnimation);
     }, 1000 / fps);
