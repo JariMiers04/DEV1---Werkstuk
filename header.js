@@ -30,7 +30,6 @@ drawBackgroundAnimation();
 document.onmousemove = moveMouse;
 
 function moveMouse(e) {
-
     xPosMouse = e.pageX;
 
     if (e.pageY > 600 && e.pageY > height && counter >= 3) {
