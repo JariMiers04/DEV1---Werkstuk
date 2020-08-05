@@ -11,8 +11,11 @@ const height = context.canvas.height;
 
 const fps = 12;
 const space = 200;
+
+// counter for the amplitude
 let counter = 10;
 
+// background animation change every 15 frames
 let colors = ['black', 'red', 'green', 'blue', 'purple'];
 let frameCounter = 0;
 let backgroundColor = 'black';
