@@ -50,9 +50,9 @@ function drawBackgroundAnimation() {
     console.log(backgroundColor);
     context.fillRect(0, 0, width, height);
     for (let i = 0; i < 8; i++) {
-        let Yrandom = Utils.randomNumber(1, counter);
+        let yRandom = Utils.randomNumber(1, counter);
         context.fillStyle = Utils.hsl(xPosMouse / colorMultiplier, 100, 50);
-        for (let j = 0; j < Yrandom; j++) {
+        for (let j = 0; j < yRandom; j++) {
             context.fillRect(50 + space + i * space, height - 40 - j * 40, 100, 20);
         }
     }
