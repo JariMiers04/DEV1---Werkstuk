@@ -8,15 +8,16 @@ import * as Utils from "./context/utils.js";
 const width = context.canvas.width;
 const height = context.canvas.height;
 
-
+// slower animation
 const fps = 12;
+// space between rect (music bars)
 const space = 200;
 
 // counter for the amplitude
 let counter = 10;
 
 // background animation change every 15 frames
-let colors = ['black', 'red', 'green', 'blue', 'purple'];
+let colors = ['black', 'red', 'green', 'blue', 'purple', 'brown'];
 let frameCounter = 0;
 let backgroundColor = 'black';
 
@@ -32,12 +33,12 @@ document.onmousemove = moveMouse;
 function moveMouse(e) {
     xPosMouse = e.pageX;
 
-    if (e.pageY > 600 && e.pageY > height && counter >= 3) {
+    if (e.pageY > 600 && e.pageY > height && counter >= 2) {
         counter -= 0.5;
     } else if (e.pageY < 600 && e.pageY > 0 && counter <= 15) {
         counter += 0.2;
     }
-    console.log(counter);
+    // console.log(counter);
 }
 
 function drawBackgroundAnimation() {
