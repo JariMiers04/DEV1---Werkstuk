@@ -11,7 +11,7 @@ const height = context.canvas.height;
 // slower animation
 const fps = 12;
 // space between rect (music bars)
-const space = 200;
+const space = 150;
 
 // counter for the amplitude
 let counter = 10;
@@ -53,7 +53,7 @@ function drawBackgroundAnimation() {
         let Yrandom = Utils.randomNumber(1, counter);
         context.fillStyle = Utils.hsl(xPosMouse / colorMultiplier, 100, 50);
         for (let j = 0; j < 20; j++) {
-            context.fillRect(0 + space + i * space, height - 40 - j * 40, 100, 20);
+            context.fillRect(50 + space + i * space, height - 40 - j * 40, 100, 20);
             if (j === Yrandom) {
                 break;
             }
