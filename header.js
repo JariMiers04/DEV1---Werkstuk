@@ -52,11 +52,8 @@ function drawBackgroundAnimation() {
     for (let i = 0; i < 8; i++) {
         let Yrandom = Utils.randomNumber(1, counter);
         context.fillStyle = Utils.hsl(xPosMouse / colorMultiplier, 100, 50);
-        for (let j = 0; j < 20; j++) {
+        for (let j = 0; j < Yrandom; j++) {
             context.fillRect(50 + space + i * space, height - 40 - j * 40, 100, 20);
-            if (j === Yrandom) {
-                break;
-            }
         }
     }
 
