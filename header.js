@@ -33,9 +33,9 @@ document.onmousemove = moveMouse;
 function moveMouse(e) {
     xPosMouse = e.pageX;
 
-    if (e.pageY > 600 && e.pageY > height && counter >= 2) {
+    if (e.pageY > height && counter >= 2) {
         counter -= 0.5;
-    } else if (e.pageY < 600 && e.pageY > 0 && counter <= 15) {
+    } else if (e.pageY < height && counter <= 15) {
         counter += 0.2;
     }
     // console.log(counter);
